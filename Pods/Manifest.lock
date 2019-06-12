@@ -1,0 +1,16 @@
+PODS:
+  - Plaid (1.1.15)
+
+DEPENDENCIES:
+  - Plaid
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Plaid
+
+SPEC CHECKSUMS:
+  Plaid: 331ed90281a7e6b9329d5e24673da35c3c2e7fc7
+
+PODFILE CHECKSUM: 222f59033922a9ac05abea589b4b835c11c9c94c
+
+COCOAPODS: 1.5.3
