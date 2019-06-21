@@ -8,6 +8,7 @@
 
 import UIKit
 
+import Firebase
 import LinkKit
 
 @UIApplicationMain
@@ -30,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("Unable to setup Plaid Link")
             }
         }
+
+        FirebaseApp.configure()
 
         return true
     }

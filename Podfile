@@ -6,6 +6,14 @@ target 'OurBudget' do
   use_frameworks!
 
   # Pods for OurBudget
+  pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Functions'
+  pod 'FirebaseUI'
+
   pod 'Plaid' 
 
   target 'OurBudgetTests' do

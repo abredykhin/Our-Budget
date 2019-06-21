@@ -8,12 +8,16 @@
 
 import UIKit
 
+import Firebase
 import LinkKit
 
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var linkButton: UIButton!
+
+    private lazy var functions = Functions.functions()
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,8 +40,6 @@ class FirstViewController: UIViewController {
             linkViewController.modalPresentationStyle = .formSheet
         }
         present(linkViewController, animated: true)
-
-
     }
 
     @objc func didReceiveNotification(_ notification: NSNotification) {
@@ -48,7 +50,24 @@ class FirstViewController: UIViewController {
     }
 
     func handleSuccessWithToken(_ publicToken: String, metadata: [String : Any]?) {
-        presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata ?? [:])")
+        //presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata ?? [:])")\
+
+        let data = ["publicToken": publicToken]
+
+        // TODO: local debug
+        //functions.useFunctionsEmulator(origin: "http://localhost:5001")
+        functions.httpsCallable("addBankItem").call(data) { (result, err) in
+            if let error = err as NSError? {
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                    let r = 1 + 2
+                }
+            }
+
+
+        }
     }
 
     func handleError(_ error: Error, metadata: [String : Any]?) {
