@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var linkButton: UIButton!
 
     private lazy var functions = Functions.functions()
-
+    private lazy var db = Firestore.firestore()
     
     override func awakeFromNib() {
         super.awakeFromNib()
