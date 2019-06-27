@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		3A95923C22B45F22000790DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A95923B22B45F22000790DF /* GoogleService-Info.plist */; };
 		3AB766E222AF864D004EEA22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766E122AF864D004EEA22 /* AppDelegate.swift */; };
-		3AB766E422AF864D004EEA22 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766E322AF864D004EEA22 /* FirstViewController.swift */; };
+		3AB766E422AF864D004EEA22 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766E322AF864D004EEA22 /* OverviewViewController.swift */; };
 		3AB766E622AF864D004EEA22 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766E522AF864D004EEA22 /* SecondViewController.swift */; };
 		3AB766E922AF864D004EEA22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB766E722AF864D004EEA22 /* Main.storyboard */; };
 		3AB766EB22AF864E004EEA22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB766EA22AF864E004EEA22 /* Assets.xcassets */; };
 		3AB766EE22AF864E004EEA22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB766EC22AF864E004EEA22 /* LaunchScreen.storyboard */; };
 		3AB766F922AF864E004EEA22 /* OurBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB766F822AF864E004EEA22 /* OurBudgetTests.swift */; };
 		3AB7670422AF864E004EEA22 /* OurBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7670322AF864E004EEA22 /* OurBudgetUITests.swift */; };
+		3AF1323F22BF6022005F44FE /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1323E22BF6022005F44FE /* MainAssembly.swift */; };
+		3AF1324322BF6234005F44FE /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1324222BF6234005F44FE /* OverviewViewModel.swift */; };
+		3AF1324622BF6D3B005F44FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1324522BF6D3B005F44FE /* Constants.swift */; };
+		3AF1324822C08CFA005F44FE /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF1324722C08CFA005F44FE /* Models.swift */; };
 		5269D90EF311B96606E3DCFA /* Pods_OurBudgetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B8BA90D58C1E3A3DA6F101 /* Pods_OurBudgetTests.framework */; };
 		75D0325D5D130D0FDB027EFE /* Pods_OurBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE76AA2D9A6845EE532C014 /* Pods_OurBudget.framework */; };
 		F0E57B3174E12A0D1CCD7840 /* Pods_OurBudgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D35B9336AA246B2536C0F3 /* Pods_OurBudgetUITests.framework */; };
@@ -44,7 +48,7 @@
 		3A95923B22B45F22000790DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AB766DE22AF864D004EEA22 /* OurBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB766E122AF864D004EEA22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3AB766E322AF864D004EEA22 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		3AB766E322AF864D004EEA22 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		3AB766E522AF864D004EEA22 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3AB766E822AF864D004EEA22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB766EA22AF864E004EEA22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +60,10 @@
 		3AB766FF22AF864E004EEA22 /* OurBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OurBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB7670322AF864E004EEA22 /* OurBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurBudgetUITests.swift; sourceTree = "<group>"; };
 		3AB7670522AF864E004EEA22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF1323E22BF6022005F44FE /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		3AF1324222BF6234005F44FE /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		3AF1324522BF6D3B005F44FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3AF1324722C08CFA005F44FE /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4EE76AA2D9A6845EE532C014 /* Pods_OurBudget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OurBudget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D35B9336AA246B2536C0F3 /* Pods_OurBudgetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OurBudgetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C15DA6746CA0C2DD0F0095C /* Pods-OurBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OurBudget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OurBudget/Pods-OurBudget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,8 +136,10 @@
 		3AB766E022AF864D004EEA22 /* OurBudget */ = {
 			isa = PBXGroup;
 			children = (
+				3AF1324022BF6200005F44FE /* Home */,
+				3AF1323C22BF5FF3005F44FE /* Core */,
+				3AF1324422BF6D27005F44FE /* Misc */,
 				3AB766E122AF864D004EEA22 /* AppDelegate.swift */,
-				3AB766E322AF864D004EEA22 /* FirstViewController.swift */,
 				3AB766E522AF864D004EEA22 /* SecondViewController.swift */,
 				3AB766E722AF864D004EEA22 /* Main.storyboard */,
 				3AB766EA22AF864E004EEA22 /* Assets.xcassets */,
@@ -156,6 +166,48 @@
 				3AB7670522AF864E004EEA22 /* Info.plist */,
 			);
 			path = OurBudgetUITests;
+			sourceTree = "<group>";
+		};
+		3AF1323C22BF5FF3005F44FE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1323D22BF5FFD005F44FE /* DI */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3AF1323D22BF5FFD005F44FE /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1323E22BF6022005F44FE /* MainAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		3AF1324022BF6200005F44FE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1324122BF6207005F44FE /* Overview */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3AF1324122BF6207005F44FE /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				3AB766E322AF864D004EEA22 /* OverviewViewController.swift */,
+				3AF1324222BF6234005F44FE /* OverviewViewModel.swift */,
+				3AF1324722C08CFA005F44FE /* Models.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		3AF1324422BF6D27005F44FE /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3AF1324522BF6D3B005F44FE /* Constants.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		8C43E599F4C41ADD4F781E73 /* Pods */ = {
@@ -314,18 +366,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OurBudget/Pods-OurBudget-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${PODS_ROOT}/Plaid/ios/LinkKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -335,18 +388,19 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectAutoregistration.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -450,29 +504,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OurBudget/Pods-OurBudget-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -488,7 +530,11 @@
 			files = (
 				3AB766E622AF864D004EEA22 /* SecondViewController.swift in Sources */,
 				3AB766E222AF864D004EEA22 /* AppDelegate.swift in Sources */,
-				3AB766E422AF864D004EEA22 /* FirstViewController.swift in Sources */,
+				3AF1323F22BF6022005F44FE /* MainAssembly.swift in Sources */,
+				3AF1324322BF6234005F44FE /* OverviewViewModel.swift in Sources */,
+				3AB766E422AF864D004EEA22 /* OverviewViewController.swift in Sources */,
+				3AF1324622BF6D3B005F44FE /* Constants.swift in Sources */,
+				3AF1324822C08CFA005F44FE /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

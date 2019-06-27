@@ -10,11 +10,23 @@ target 'OurBudget' do
   pod 'Fabric'
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   pod 'Firebase/Firestore'
   pod 'Firebase/Functions'
-  pod 'FirebaseUI'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'Plaid'
+  pod 'RxCocoa'
+  pod 'RxFirebase/Auth'
+  pod 'RxFirebase/Firestore'
+  pod 'RxFirebase/Functions'
+  pod 'RxGesture'
+  pod 'RxOptional'
+  pod 'RxSwift'
+  pod 'Swinject'
+  pod 'SwinjectAutoregistration'
+  pod 'SwiftGen'
 
-  pod 'Plaid' 
 
   target 'OurBudgetTests' do
     inherit! :search_paths

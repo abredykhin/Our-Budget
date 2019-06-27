@@ -1,10 +1,4 @@
 PODS:
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
   - BoringSSL-GRPC (0.0.2):
     - BoringSSL-GRPC/Implementation (= 0.0.2)
     - BoringSSL-GRPC/Interface (= 0.0.2)
@@ -14,10 +8,6 @@ PODS:
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
-  - FBSDKCoreKit (4.40.0):
-    - Bolts (~> 1.9)
-  - FBSDKLoginKit (4.40.0):
-    - FBSDKCoreKit
   - Firebase/Analytics (5.17.0):
     - Firebase/Core
   - Firebase/Auth (5.17.0):
@@ -28,18 +18,15 @@ PODS:
     - FirebaseAnalytics (= 5.6.0)
   - Firebase/CoreOnly (5.17.0):
     - FirebaseCore (= 5.3.0)
-  - Firebase/Database (5.17.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.1.0)
   - Firebase/Firestore (5.17.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 1.0.1)
   - Firebase/Functions (5.17.0):
     - Firebase/CoreOnly
     - FirebaseFunctions (= 2.2.1)
-  - Firebase/Storage (5.17.0):
+  - Firebase/Messaging (5.17.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (= 3.1.0)
+    - FirebaseMessaging (= 3.3.1)
   - FirebaseAnalytics (5.6.0):
     - FirebaseCore (~> 5.3)
     - FirebaseInstanceID (~> 3.5)
@@ -49,6 +36,7 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - FirebaseAnalyticsInterop (1.2.0)
   - FirebaseAuth (5.3.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
@@ -57,10 +45,6 @@ PODS:
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.3.0):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseDatabase (5.1.0):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.2)
-    - leveldb-library (~> 1.18)
   - FirebaseFirestore (1.0.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
@@ -84,46 +68,19 @@ PODS:
     - FirebaseCore (~> 5.3)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
-  - FirebaseStorage (3.1.0):
-    - FirebaseAuthInterop (~> 1.0)
+  - FirebaseMessaging (3.3.1):
+    - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 5.2)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseUI (6.1.1):
-    - FirebaseUI/Anonymous (= 6.1.1)
-    - FirebaseUI/Auth (= 6.1.1)
-    - FirebaseUI/Database (= 6.1.1)
-    - FirebaseUI/Email (= 6.1.1)
-    - FirebaseUI/Facebook (= 6.1.1)
-    - FirebaseUI/Firestore (= 6.1.1)
-    - FirebaseUI/Google (= 6.1.1)
-    - FirebaseUI/Phone (= 6.1.1)
-    - FirebaseUI/Storage (= 6.1.1)
-    - FirebaseUI/Twitter (= 6.1.1)
-  - FirebaseUI/Anonymous (6.1.1):
-    - FirebaseUI/Auth
+    - FirebaseInstanceID (~> 3.4)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
   - FirebaseUI/Auth (6.1.1):
     - Firebase/Auth (~> 5.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Database (6.1.1):
-    - Firebase/Database (~> 5.0)
-  - FirebaseUI/Email (6.1.1):
-    - FirebaseUI/Auth
-  - FirebaseUI/Facebook (6.1.1):
-    - FBSDKLoginKit (~> 4.35)
-    - FirebaseUI/Auth
-  - FirebaseUI/Firestore (6.1.1):
-    - Firebase/Firestore
   - FirebaseUI/Google (6.1.1):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
-  - FirebaseUI/Phone (6.1.1):
-    - FirebaseUI/Auth
-  - FirebaseUI/Storage (6.1.1):
-    - Firebase/Storage (~> 5.0)
-    - SDWebImage (~> 4.0)
-  - FirebaseUI/Twitter (6.1.1):
-    - FirebaseUI/Auth
-    - TwitterKit (~> 3.0)
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -185,12 +142,40 @@ PODS:
   - nanopb/encode (0.3.901)
   - Plaid (1.1.15)
   - Protobuf (3.6.1)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
-  - TwitterCore (3.2.0)
-  - TwitterKit (3.4.2):
-    - TwitterCore (>= 3.2.0)
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
+    - RxSwift (~> 4.0)
+  - RxFirebase/Auth (0.3.4):
+    - RxFirebaseAuthentication (~> 0.3)
+  - RxFirebase/Firestore (0.3.4):
+    - RxFirebaseFirestore (~> 0.3)
+  - RxFirebase/Functions (0.3.4):
+    - RxFirebaseFunctions (~> 0.3)
+  - RxFirebaseAuthentication (0.3.4):
+    - FirebaseAuth (~> 5)
+    - FirebaseCore (~> 5)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxFirebaseFirestore (0.3.4):
+    - FirebaseFirestore (~> 1)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxFirebaseFunctions (0.3.4):
+    - FirebaseFunctions (~> 2)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - SwiftGen (6.1.0)
+  - Swinject (2.5.0)
+  - SwinjectAutoregistration (2.5.1):
+    - Swinject (~> 2.5)
 
 DEPENDENCIES:
   - Crashlytics
@@ -199,27 +184,36 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Functions
-  - FirebaseUI
+  - Firebase/Messaging
+  - FirebaseUI/Auth
+  - FirebaseUI/Google
   - Plaid
+  - RxCocoa
+  - RxFirebase/Auth
+  - RxFirebase/Firestore
+  - RxFirebase/Functions
+  - RxGesture
+  - RxOptional
+  - RxSwift
+  - SwiftGen
+  - Swinject
+  - SwinjectAutoregistration
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Bolts
     - BoringSSL-GRPC
     - Crashlytics
     - Fabric
-    - FBSDKCoreKit
-    - FBSDKLoginKit
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
     - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
-    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseFunctions
     - FirebaseInstanceID
-    - FirebaseStorage
+    - FirebaseMessaging
     - FirebaseUI
     - GoogleAppMeasurement
     - GoogleSignIn
@@ -232,27 +226,33 @@ SPEC REPOS:
     - nanopb
     - Plaid
     - Protobuf
-    - SDWebImage
-    - TwitterCore
-    - TwitterKit
+    - RxAtomic
+    - RxCocoa
+    - RxFirebase
+    - RxFirebaseAuthentication
+    - RxFirebaseFirestore
+    - RxFirebaseFunctions
+    - RxGesture
+    - RxOptional
+    - RxSwift
+    - SwiftGen
+    - Swinject
+    - SwinjectAutoregistration
 
 SPEC CHECKSUMS:
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
-  FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
+  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
   FirebaseAuth: 0f61e1329237da5682c49c9abd135e8f9d07a151
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
-  FirebaseDatabase: 23acb0c53cd4d4070a427b60100b2e4aaa97c45d
   FirebaseFirestore: e95af4fe30552092d6e72a8f97ea475d93891b75
   FirebaseFunctions: 324bdb368eeb5a1985fbb2184981b9480ea34aa9
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
-  FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
+  FirebaseMessaging: 08289db05bdc71d91fe70916de95bb0c3c86ca9b
   FirebaseUI: 1345f778d53f9484f21474c7b10bba313b28a76b
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -265,10 +265,19 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Plaid: 331ed90281a7e6b9329d5e24673da35c3c2e7fc7
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
-  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
-  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxFirebase: 77493b62bfafe7d4dbb404bd06874756f29465ab
+  RxFirebaseAuthentication: 9dc412659765fe6a873b996cfd042b745cb643b4
+  RxFirebaseFirestore: b24cc69850aa85d5efdd6ad39f4308017cd76e86
+  RxFirebaseFunctions: 24ad39bbefbf14d82954f12772339c678bef9dfb
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
 
-PODFILE CHECKSUM: d5e93cb78260f6af33c232b32a14f5eaa401a592
+PODFILE CHECKSUM: 2333045f3709823ca8f1bc36e8e9e6d797fb271f
 
 COCOAPODS: 1.5.3
