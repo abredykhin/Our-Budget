@@ -48,7 +48,7 @@ struct Balance {
     let limit: Float?
 
     init(dictionary: [String: Any]) {
-        self.current = Float(dictionary[Constants.Firestore.Balance.current] as! String)!
+        self.current = dictionary[Constants.Firestore.Balance.current] as! Float
         self.available = Float(dictionary[Constants.Firestore.Balance.available] as? String ?? "0.0")
         self.limit = Float(dictionary[Constants.Firestore.Balance.limit] as? String ?? "0.0")
     }

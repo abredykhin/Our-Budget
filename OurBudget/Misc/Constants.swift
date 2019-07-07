@@ -39,10 +39,13 @@ struct Constants {
             static let name = "name"
             static let type = "type"
             static let balance = "balances"
+            static let bankId = "bank_id"
 
             struct AccountType {
-                static let depository = "depositiry"
+                static let depository = "depository"
                 static let credit = "credit"
+                static let mortgage = "mortgage"
+                static let savings = "savings"
             }
         }
 
@@ -60,7 +63,6 @@ struct Constants {
             static let name = "name"
             static let logo = "logo"
             static let primaryColor = "primary_color"
-            static let balance = "balance"
         }
     }
 
