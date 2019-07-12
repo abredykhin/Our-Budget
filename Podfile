@@ -1,10 +1,9 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '12.3'
+use_frameworks!
+inhibit_all_warnings!
 
 target 'OurBudget' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
   # Pods for OurBudget
   pod 'Crashlytics'
   pod 'Fabric'
@@ -15,6 +14,7 @@ target 'OurBudget' do
   pod 'Firebase/Functions'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
+  pod 'NVActivityIndicatorView'
   pod 'Plaid'
   pod 'RxCocoa'
   pod 'RxFirebase/Auth'
@@ -26,7 +26,7 @@ target 'OurBudget' do
   pod 'Swinject'
   pod 'SwinjectAutoregistration'
   pod 'SwiftGen'
-
+  pod 'UICircularProgressRing'
 
   target 'OurBudgetTests' do
     inherit! :search_paths

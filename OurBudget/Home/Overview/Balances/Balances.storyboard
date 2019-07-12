@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dzz-BG-H9d">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Balances View Controller-->
+        <scene sceneID="qu2-9K-PkU">
+            <objects>
+                <viewController id="dzz-BG-H9d" customClass="BalancesViewController" customModule="OurBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RK2-nY-aqP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLB-qA-c1g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balances" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idN-WM-ysr" userLabel="Current Balances">
+                                        <rect key="frame" x="117" y="0.0" width="141.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wak-2E-Ikx" userLabel="Cash Stack View">
+                                        <rect key="frame" x="0.0" y="28.5" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbW-He-nDU" userLabel="Cash">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2r-9H-luU" userLabel="Cash Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-e3-QeY" userLabel="Credit Stack View">
+                                        <rect key="frame" x="0.0" y="57" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Credit Cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HL-ur-4g0" userLabel="Credit">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKL-Zz-oOb" userLabel="Credit Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZPh-Zd-mcD" userLabel="Separator">
+                                        <rect key="frame" x="67.5" y="85.5" width="240" height="2"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="aVp-rD-6te"/>
+                                            <constraint firstAttribute="width" constant="240" id="zqs-Vj-g3v"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="43R-NU-H1t" userLabel="Net Stack View">
+                                        <rect key="frame" x="0.0" y="95.5" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Net" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXW-M5-LIj" userLabel="Net">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciJ-dO-9E8" userLabel="Net Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8a-50-gNR" userLabel="Long Term">
+                                        <rect key="frame" x="144.5" y="124" width="86" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Or2-fe-XBX" userLabel="Savings Stack View">
+                                        <rect key="frame" x="0.0" y="152.5" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Savings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl4-MY-gYS" userLabel="Savings">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGW-2V-SAq" userLabel="Savings Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GYJ-rA-zkI" userLabel="Retirement Stack View">
+                                        <rect key="frame" x="0.0" y="181" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Retirement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hho-SP-kcf" userLabel="Retirement">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXM-Cp-3Hk" userLabel="Retirement Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JoL-CR-Omv" userLabel="Mortgage Stack View">
+                                        <rect key="frame" x="0.0" y="209.5" width="375" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Mortgage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLV-fa-m4f" userLabel="Mortgage">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6K-yf-u8j" userLabel="Mortgage Balance">
+                                                <rect key="frame" x="330" y="0.0" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JoL-CR-Omv" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="1wE-mx-cH9"/>
+                                    <constraint firstItem="GYJ-rA-zkI" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="5kp-Qn-UrV"/>
+                                    <constraint firstAttribute="trailing" secondItem="wak-2E-Ikx" secondAttribute="trailing" constant="20" symbolic="YES" id="B6R-ep-uru"/>
+                                    <constraint firstAttribute="trailing" secondItem="Or2-fe-XBX" secondAttribute="trailing" id="ErZ-fN-tP9"/>
+                                    <constraint firstAttribute="trailing" secondItem="43R-NU-H1t" secondAttribute="trailing" id="IeD-Wi-fOV"/>
+                                    <constraint firstItem="wak-2E-Ikx" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="Jdn-jt-aCH"/>
+                                    <constraint firstItem="Or2-fe-XBX" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="MCT-P5-LrW"/>
+                                    <constraint firstAttribute="trailing" secondItem="bbd-e3-QeY" secondAttribute="trailing" id="Qoe-ae-LEz"/>
+                                    <constraint firstAttribute="trailing" secondItem="GYJ-rA-zkI" secondAttribute="trailing" id="TzR-Ze-MBe"/>
+                                    <constraint firstItem="43R-NU-H1t" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="W3I-VD-sMo"/>
+                                    <constraint firstAttribute="trailing" secondItem="JoL-CR-Omv" secondAttribute="trailing" id="Xnu-yd-zxA"/>
+                                    <constraint firstItem="wak-2E-Ikx" firstAttribute="top" secondItem="idN-WM-ysr" secondAttribute="bottom" constant="8" id="bku-S1-DY1"/>
+                                    <constraint firstAttribute="height" constant="230" id="btY-Fy-nt7"/>
+                                    <constraint firstItem="bbd-e3-QeY" firstAttribute="leading" secondItem="lLB-qA-c1g" secondAttribute="leading" id="nql-H0-j9O"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dK2-nM-nlb" firstAttribute="bottom" secondItem="lLB-qA-c1g" secondAttribute="bottom" constant="20" id="C2K-SN-fIC"/>
+                            <constraint firstItem="dK2-nM-nlb" firstAttribute="trailing" secondItem="lLB-qA-c1g" secondAttribute="trailing" id="EXJ-bL-4j1"/>
+                            <constraint firstItem="lLB-qA-c1g" firstAttribute="top" secondItem="dK2-nM-nlb" secondAttribute="top" id="fQC-ym-ffP"/>
+                            <constraint firstItem="lLB-qA-c1g" firstAttribute="leading" secondItem="dK2-nM-nlb" secondAttribute="leading" id="ybT-Jo-Zm4"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                        <viewLayoutGuide key="safeArea" id="dK2-nM-nlb"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="250"/>
+                    <connections>
+                        <outlet property="cashBalanceLabel" destination="S2r-9H-luU" id="jv8-5x-AgD"/>
+                        <outlet property="creditBalanceLabel" destination="jKL-Zz-oOb" id="GMn-6j-KmN"/>
+                        <outlet property="mortgageBalanceLabel" destination="w6K-yf-u8j" id="7b9-H7-Jvr"/>
+                        <outlet property="netBalanceLabel" destination="ciJ-dO-9E8" id="6XT-k3-zjb"/>
+                        <outlet property="retirementBalanceLabel" destination="BXM-Cp-3Hk" id="qfY-hu-Tig"/>
+                        <outlet property="savingsBalanceLabel" destination="GGW-2V-SAq" id="ZG0-yg-vTU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTc-iY-ilz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="158.77061469265368"/>
+        </scene>
+    </scenes>
+</document>

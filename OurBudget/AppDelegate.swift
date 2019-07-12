@@ -17,8 +17,16 @@ import LinkKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var assembly = MainAssembly()
+    var router: Router!
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame:UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+
+        FirebaseApp.configure()
+        router = assembly.router()
         PLKPlaidLink.setup { (success, error) in
             if (success) {
                 // Handle success here, e.g. by posting a notification
@@ -33,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        FirebaseApp.configure()
+
         setupFCM(application: application)
         return true
     }
@@ -105,5 +113,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+}
+
+extension UIApplication {
+    static func appDelegate() -> AppDelegate {
+        return UIApplication.shared.delegate! as! AppDelegate
     }
 }

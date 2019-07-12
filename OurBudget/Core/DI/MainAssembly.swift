@@ -14,4 +14,8 @@ class MainAssembly: Assembly {
     func assemble(container: Container) {
 
     }
+
+    func router() -> Router {
+        return Router()
+    }
 }

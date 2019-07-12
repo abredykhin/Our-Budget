@@ -11,103 +11,179 @@ import UIKit
 import FirebaseFunctions
 import FirebaseFirestore
 import FirebaseUI
-import FirebaseUI
 import LinkKit
 import RxCocoa
 import RxSwift
 
-class OverviewViewController: UIViewController {
+class OverviewViewController: UIViewController, ViewControllerContainer {
+    typealias ContainerView = ControllerCollectionViewCell
 
+    @IBOutlet weak var collectionView: UICollectionView!    
     private let disposeBag = DisposeBag()
-    @IBOutlet weak var cashBalanceLabel: UILabel!
-    @IBOutlet weak var crerditBalanceLabel: UILabel!
-    @IBOutlet weak var retirementBalanceLabel: UILabel!
-    
-    private lazy var viewModel: OverviewViewModel =
-        OverviewViewModel(functions: Functions.functions(), firestore: Firestore.firestore())
+    private let refreshControl = UIRefreshControl()
+    private let cellPadding: CGFloat = 16
+    private var controllers: [IndexPath: UIViewController] = [:]
+
+    private lazy var viewModel: OverviewViewModel = OverviewViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.cashBalance.asObservable().bind(to: cashBalanceLabel.rx.text).disposed(by: disposeBag)
-        viewModel.creditBalance.asObservable().bind(to: crerditBalanceLabel.rx.text).disposed(by: disposeBag)
-        viewModel.retirementBalance.asObservable().bind(to: retirementBalanceLabel.rx.text).disposed(by: disposeBag)
-        
-        viewModel.login.emit(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            self.login()
-        }).disposed(by: disposeBag)
-        viewModel.plaidLink.emit(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            self.plaidLink()
-        }).disposed(by: disposeBag)
+        view.backgroundColor = .clear
+
+        collectionView.register(ControllerCollectionViewCell.self,
+                                forCellWithReuseIdentifier: ControllerCollectionViewCell.reuseId)
+        collectionView.layer.shadowColor = UIColor.black.cgColor
+        collectionView.layer.shadowOpacity = 1
+        collectionView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        collectionView.layer.shadowRadius = 16
+        collectionView.backgroundColor = .clear
+
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshAll(_:)), for: .valueChanged)
+        refreshControl.tintColor = .white
     }
 
-    @IBAction func linkAccountTapped(_ sender: UIButton) {
-        plaidLink()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 
-    private func login() {
-        let authUI = FUIAuth.defaultAuthUI()!
-        authUI.providers = [FUIGoogleAuth()]
-        authUI.delegate = self
-        let authViewController = authUI.authViewController()
-        self.present(authViewController, animated: true, completion: nil)
-    }
+    @objc private func refreshAll(_ sender: Any) {
+        reloadUI()
 
-    private func plaidLink() {
-        let linkViewController = PLKPlaidLinkViewController(delegate: self)
-        present(linkViewController, animated: true)
-    }
-
-}
-
-extension OverviewViewController : FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        if let error = error {
-            print("Unable to sign-in \(error)")
-            login()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.refreshControl.endRefreshing()
         }
+    }
+
+    private func reloadUI() {
+        for (_, controller) in controllers {
+            controller.view.removeFromSuperview()
+            controller.removeFromParent()
+        }
+        controllers.removeAll()
+        collectionView.reloadData()
     }
 }
 
-extension OverviewViewController : PLKPlaidLinkViewDelegate {
+extension OverviewViewController: UICollectionViewDataSource {
 
-    func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didSucceedWithPublicToken publicToken: String, metadata: [String : Any]?) {
-        dismiss(animated: true) {
-            self.viewModel.handlePladLinkSuccess(publicToken: publicToken, metadata: metadata!)
+    private func configureCellContainer(_ container: UIView) {
+        guard let superview = container.superview else { return }
+
+        container.clipsToBounds = true
+        container.cornerRadius = 8
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            container.topAnchor.constraint(equalTo: superview.topAnchor),
+            container.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            ])
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel.state.numSections
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let collectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ControllerCollectionViewCell.reuseId, for: indexPath)
+
+        guard let cell = collectionCell as? ControllerCollectionViewCell else {
+            fatalError("Unable to dequeue ControllerCollectionViewCell")
+        }
+
+        if let controller = controllers[indexPath] {
+            embed(controller, in: cell, configure: configureCellContainer)
+        } else {
+            switch viewModel.state.section(at: indexPath) {
+            case .balances?:
+                let controller = StoryboardScene.Balances.initialScene.instantiate()
+                embed(controller, in: cell, configure: configureCellContainer)
+                controllers[indexPath] = controller
+            case .budget?:
+                let controller = StoryboardScene.Budget.initialScene.instantiate()
+                embed(controller, in: cell, configure: configureCellContainer)
+                controllers[indexPath] = controller
+            case nil:
+                break
+            default:
+                break
+            }
+        }
+
+        return cell
+    }
+}
+
+extension OverviewViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths where controllers[indexPath] == nil {
+            switch viewModel.state.section(at: indexPath) {
+            case .balances?:
+                let controller = StoryboardScene.Balances.initialScene.instantiate()
+                _ = controller.view
+                controllers[indexPath] = controller
+            case .budget?:
+                let controller = StoryboardScene.Budget.initialScene.instantiate()
+                _ = controller.view
+                controllers[indexPath] = controller
+            case nil:
+                break
+            default:
+                break
+            }
+        }
+    }
+}
+
+extension OverviewViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let viewWidth = collectionView.bounds.width - cellPadding * 2
+        let width = viewWidth
+
+        switch viewModel.state.section(at: indexPath) {
+        case .balances?:
+            return CGSize(width: width, height: 250)
+        case .budget?:
+            return CGSize(width: width, height: 200)
+        case nil:
+            return .zero
+        default:
+            return .zero
         }
     }
 
-    func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didExitWithError error: Error?, metadata: [String : Any]?) {
-        dismiss(animated: true) {
-            if let error = error {
-                NSLog("Failed to link account due to: \(error.localizedDescription)\nmetadata: \(metadata ?? [:])")
-                self.handleError(error, metadata: metadata)
-            }
-            else {
-                NSLog("Plaid link exited with metadata: \(metadata ?? [:])")
-                self.handleExitWithMetadata(metadata)
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellPadding
     }
 
-    func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didHandleEvent event: String, metadata: [String : Any]?) {
-        NSLog("Link event: \(event)\nmetadata: \(metadata ?? [:])")
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellPadding
     }
 
-    private func handleError(_ error: Error, metadata: [String : Any]?) {
-        presentAlertViewWithTitle("Failure", message: "error: \(error.localizedDescription)\nmetadata: \(metadata ?? [:])")
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: cellPadding, left: cellPadding, bottom: 0, right: cellPadding)
     }
 
-    private func handleExitWithMetadata(_ metadata: [String : Any]?) {
-        presentAlertViewWithTitle("Exit", message: "metadata: \(metadata ?? [:])")
-    }
-
-    private func presentAlertViewWithTitle(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 0)
     }
 }

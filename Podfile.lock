@@ -140,6 +140,9 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - NVActivityIndicatorView (4.6.1):
+    - NVActivityIndicatorView/Presenter (= 4.6.1)
+  - NVActivityIndicatorView/Presenter (4.6.1)
   - Plaid (1.1.15)
   - Protobuf (3.6.1)
   - RxAtomic (4.4.1)
@@ -176,6 +179,7 @@ PODS:
   - Swinject (2.5.0)
   - SwinjectAutoregistration (2.5.1):
     - Swinject (~> 2.5)
+  - UICircularProgressRing (6.2.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -187,6 +191,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - NVActivityIndicatorView
   - Plaid
   - RxCocoa
   - RxFirebase/Auth
@@ -198,6 +203,7 @@ DEPENDENCIES:
   - SwiftGen
   - Swinject
   - SwinjectAutoregistration
+  - UICircularProgressRing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -224,6 +230,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - Plaid
     - Protobuf
     - RxAtomic
@@ -238,6 +245,7 @@ SPEC REPOS:
     - SwiftGen
     - Swinject
     - SwinjectAutoregistration
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
@@ -263,6 +271,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   Plaid: 331ed90281a7e6b9329d5e24673da35c3c2e7fc7
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
@@ -277,7 +286,8 @@ SPEC CHECKSUMS:
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   SwinjectAutoregistration: f72bf894cbd2ee4a9153e00fa5208e93fb44d283
+  UICircularProgressRing: 0ff679b05a17f15ad6301a7886686837b8c301a9
 
-PODFILE CHECKSUM: 2333045f3709823ca8f1bc36e8e9e6d797fb271f
+PODFILE CHECKSUM: 52b3750ee2de017687f3f1f1a8149841591f5009
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.3

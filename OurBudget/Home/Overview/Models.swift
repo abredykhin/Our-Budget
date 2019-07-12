@@ -10,7 +10,7 @@ import Foundation
 
 struct Transaction {
     let accountId: String
-    let amount: Float
+    let amount: Double
     let category: [String]?
     let date: String
     let name: String
@@ -18,7 +18,7 @@ struct Transaction {
 
     init(dictionary: [String: Any]) {
         self.accountId = dictionary[Constants.Firestore.Transaction.accountId] as! String
-        self.amount = Float(dictionary[Constants.Firestore.Transaction.amount] as! String)!
+        self.amount = dictionary[Constants.Firestore.Transaction.amount] as! Double
         self.category = dictionary[Constants.Firestore.Transaction.category] as? [String] ?? []
         self.date = dictionary[Constants.Firestore.Transaction.date] as! String
         self.name = dictionary[Constants.Firestore.Transaction.name] as! String
@@ -26,16 +26,22 @@ struct Transaction {
     }
 }
 
+struct RecentTransaction {
+    let amount: String
+    let name: String
+    let budgetHit: Int
+}
+
 struct Account {
     let id: String
-    let balance: Balance
+    let balances: Balance
     let mask: String
     let name: String
     let type: String
 
     init(dictionary: [String: Any]) {
         self.id = dictionary[Constants.Firestore.Account.id] as! String
-        self.balance = Balance(dictionary: dictionary[Constants.Firestore.Account.balance] as! [String:Any])
+        self.balances = Balance(dictionary: dictionary[Constants.Firestore.Account.balance] as! [String:Any])
         self.name = dictionary[Constants.Firestore.Account.name] as! String
         self.mask = dictionary[Constants.Firestore.Account.mask] as! String
         self.type = dictionary[Constants.Firestore.Account.type] as! String
@@ -43,14 +49,14 @@ struct Account {
 }
 
 struct Balance {
-    let current: Float
-    let available: Float?
-    let limit: Float?
+    let current: Double
+    let available: Double?
+    let limit: Double?
 
     init(dictionary: [String: Any]) {
-        self.current = dictionary[Constants.Firestore.Balance.current] as! Float
-        self.available = Float(dictionary[Constants.Firestore.Balance.available] as? String ?? "0.0")
-        self.limit = Float(dictionary[Constants.Firestore.Balance.limit] as? String ?? "0.0")
+        self.current = dictionary[Constants.Firestore.Balance.current] as! Double
+        self.available = dictionary[Constants.Firestore.Balance.available] as? Double ?? 0.00
+        self.limit = dictionary[Constants.Firestore.Balance.limit] as? Double ?? 0.00
     }
 }
 
@@ -65,5 +71,21 @@ struct Bank {
         self.name = dictionary[Constants.Firestore.Bank.name] as! String
         self.logo = dictionary[Constants.Firestore.Bank.logo] as? String
         self.primaryColor = dictionary[Constants.Firestore.Bank.primaryColor] as? String
+    }
+}
+
+struct Budget {
+    let id: String
+    let name: String
+    let dailyLimit: Double
+    let weeklyLimit: Double
+    let monthlyLimit: Double
+
+    init(dictionary: [String: Any]) {
+        self.id = dictionary[Constants.Firestore.Budget.budgetId] as! String
+        self.name = dictionary[Constants.Firestore.Budget.name] as! String
+        self.dailyLimit = dictionary[Constants.Firestore.Budget.dailyLimit] as! Double
+        self.weeklyLimit = dictionary[Constants.Firestore.Budget.weeklyLimit] as! Double
+        self.monthlyLimit = dictionary[Constants.Firestore.Budget.monthlyLimit] as! Double
     }
 }

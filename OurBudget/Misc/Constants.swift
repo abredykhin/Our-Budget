@@ -15,10 +15,13 @@ struct Constants {
 
     struct Functions {
         static let addBank = "addBank"
+        static let createMainBudget = "createMainBudget"
 
         struct Params {
             static let publicToken = "public_token"
             static let bankId = "institution_id"
+            static let monthlyIncome = "monthly_income"
+            static let monthlyExpenses = "monthly_required_expenses"
         }
     }
     struct Firestore {
@@ -26,6 +29,8 @@ struct Constants {
         static let accountsCollection = "accounts"
         static let transactionsCollection = "transactions"
         static let balancesCollection = "balances"
+        static let budgetsCollection = "budgets"
+        static let mainBudget = "main"
 
         struct Balance {
             static let available = "available"
@@ -45,7 +50,17 @@ struct Constants {
                 static let depository = "depository"
                 static let credit = "credit"
                 static let mortgage = "mortgage"
-                static let savings = "savings"
+                static let investment = "investment"
+                static let loan = "loan"
+
+                struct Subtype {
+                    static let checking = "checking"
+                    static let creditCard = "credit card"
+                    static let savings = "savings"
+                    static let _401k = "401k"
+                    static let car = "auto"
+                    static let mortgage = "mortgage"
+                }
             }
         }
 
@@ -63,6 +78,14 @@ struct Constants {
             static let name = "name"
             static let logo = "logo"
             static let primaryColor = "primary_color"
+        }
+
+        struct Budget {
+            static let budgetId = "id"
+            static let name = "name"
+            static let dailyLimit = "daily_limit"
+            static let weeklyLimit = "weekly_limit"
+            static let monthlyLimit = "monthly_limit"
         }
     }
 
